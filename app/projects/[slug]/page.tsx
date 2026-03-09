@@ -1,18 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import ProjectGalleryViewer from "../../components/ProjectGalleryViewer";
 
 const accent = "#22d3ee";
 
 const projects = [
   {
     slug: "328-concord",
-    name: "328 Concord Ave",
+    name: "Oceanside Home Transformation",
     location: "Oceanside, NY 11572",
     fullAddress: "328 Concord Ave, Oceanside, NY 11572",
     type: "Full Home Transformation",
     hero: "/project-images/328-concord/Main.JPG",
     beforeImage: "/project-images/328-concord/Before.JPG",
+    afterImage: "/project-images/328-concord/Front.JPG",
     gallery: [
       "/project-images/328-concord/Front.JPG",
       "/project-images/328-concord/Back.JPG",
@@ -29,10 +31,10 @@ const projects = [
       "Open concept kitchen with waterfall island",
       "Modern bathrooms with illuminated mirrors",
       "Custom fireplace feature wall",
-      "Updated staircase and clean interior finishes",
+      "Updated staircase and refined interior finishes",
     ],
     summary:
-      "This Oceanside project was transformed into a clean, modern residence with strong curb appeal, bright open living space, upgraded bathrooms, and detail driven interior finishes throughout.",
+      "This Oceanside property underwent a complete exterior and interior transformation. The project included a redesigned facade, modern open concept kitchen with waterfall island, upgraded bathrooms, a custom fireplace feature wall, and refined finishes throughout the home.",
   },
 ];
 
@@ -84,23 +86,24 @@ export default async function ProjectDetailPage({
           </div>
 
           <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-3">
-  <div className="relative mx-auto aspect-[9/16] w-full max-w-md">
-    <Image
-      src={project.hero}
-      alt={project.name}
-      fill
-      className="object-contain rounded-2xl"
-      priority
-    />
-  </div>
-</div>
+            <div className="relative mx-auto aspect-[9/16] w-full max-w-md">
+              <Image
+                src={project.hero}
+                alt={project.name}
+                fill
+                className="rounded-2xl object-contain"
+                priority
+              />
+            </div>
+          </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-5 pt-14">
-        <h2 className="text-2xl font-semibold md:text-3xl">Before and After Direction</h2>
+        <h2 className="text-2xl font-semibold md:text-3xl">Before and After</h2>
         <p className="mt-3 max-w-2xl text-white/70">
-          This property began as a dated home and was reimagined into a much more polished, modern, and market ready residence.
+          This property was transformed from a dated residence into a much more
+          polished, modern, and market ready home.
         </p>
 
         <div className="mt-8 grid gap-6 md:grid-cols-2">
@@ -121,7 +124,7 @@ export default async function ProjectDetailPage({
           <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/5">
             <div className="relative aspect-[4/3]">
               <Image
-                src={project.hero}
+                src={project.afterImage}
                 alt={`${project.name} after`}
                 fill
                 className="object-cover"
@@ -135,23 +138,16 @@ export default async function ProjectDetailPage({
       </section>
 
       <section className="mx-auto max-w-6xl px-5 pt-14">
-        <h2 className="text-2xl font-semibold md:text-3xl">Gallery</h2>
-
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {project.gallery.map((src, index) => (
-            <div
-              key={index}
-              className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/10 bg-white/5"
-            >
-              <Image
-                src={src}
-                alt={`${project.name} gallery image ${index + 1}`}
-                fill
-                className="object-cover"
-              />
-            </div>
-          ))}
+        <div className="flex items-end justify-between gap-6">
+          <div>
+            <h2 className="text-2xl font-semibold md:text-3xl">Gallery</h2>
+            <p className="mt-3 max-w-2xl text-white/70">
+              Click any image to open the full screen gallery viewer.
+            </p>
+          </div>
         </div>
+
+        <ProjectGalleryViewer images={project.gallery} title={project.name} />
       </section>
 
       <section className="mx-auto max-w-6xl px-5 pt-14">
@@ -160,7 +156,8 @@ export default async function ProjectDetailPage({
             Interested in a similar transformation?
           </h2>
           <p className="mt-3 max-w-2xl text-white/70">
-            Luxe Homes Royale specializes in clean, high impact renovations and full home transformations that elevate both function and value.
+            Luxe Homes Royale specializes in clean, high impact renovations and
+            full home transformations that elevate both function and value.
           </p>
 
           <Link

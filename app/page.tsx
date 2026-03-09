@@ -7,19 +7,22 @@ const accent = "#22d3ee";
 const featuredProjects = [
   {
     slug: "328-concord",
-    name: "328 Concord Ave",
+    name: "Oceanside Home Transformation",
+    address: "328 Concord Ave, Oceanside, NY 11572",
     label: "Full Home Transformation",
     image: "/project-images/328-concord/Front.JPG",
   },
   {
     slug: "project-2",
     name: "Project Two",
+    address: "Coming Soon",
     label: "Coming Soon",
     image: "/projects/project-2/01.jpg",
   },
   {
     slug: "project-3",
     name: "Project Three",
+    address: "Coming Soon",
     label: "Coming Soon",
     image: "/projects/project-3/01.jpg",
   },
@@ -28,44 +31,26 @@ const featuredProjects = [
 const processSteps = [
   {
     title: "Consultation",
-    text: "We start by understanding your goals, budget, timeline, and style so the project begins with clarity.",
+    text: "We begin by understanding your vision, budget, and timeline so the project starts with clarity.",
   },
   {
     title: "Planning",
-    text: "We define scope, materials, sequencing, and expectations before the work moves forward.",
+    text: "We define scope, materials, layout direction, and execution strategy before work moves forward.",
   },
   {
     title: "Build",
-    text: "We execute with craftsmanship, communication, and attention to detail from start to finish.",
-  },
-];
-
-const testimonials = [
-  {
-    quote:
-      "Luxe Homes Royale made the process feel organized and professional from the first conversation to the final result.",
-    name: "Client Name",
-  },
-  {
-    quote:
-      "The quality of the work stood out immediately. Every finish felt thoughtful, clean, and well executed.",
-    name: "Client Name",
-  },
-  {
-    quote:
-      "They helped bring the vision to life while keeping the process straightforward and easy to follow.",
-    name: "Client Name",
+    text: "We execute with craftsmanship, communication, and detail focused project management from start to finish.",
   },
 ];
 
 const values = [
   {
     title: "Plan Well",
-    text: "Clear scopes, smart sequencing, and strong communication create a smoother project.",
+    text: "Clear scopes, smart sequencing, and strong communication create a smoother project experience.",
   },
   {
     title: "Build Well",
-    text: "We focus on workmanship, reliability, and details that hold up over time.",
+    text: "We focus on workmanship, reliability, and quality that holds up over time.",
   },
   {
     title: "Finish Strong",
@@ -95,19 +80,13 @@ export default function HomePage() {
               </p>
 
               <h1 className="mt-6 text-4xl font-semibold leading-tight md:text-6xl">
-                Custom builds, renovations, and home transformations done right
+                Custom builds, renovations, and home transformations
               </h1>
 
               <p className="mt-5 max-w-2xl text-base leading-7 text-white/75 md:text-lg">
-                Luxe Homes Royale delivers construction, renovation, and
-                house transformation projects with craftsmanship, clear
-                communication, and detail driven execution.
-              </p>
-
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-white/60">
-                From early planning through the finished result, we focus on
-                a process that feels organized, transparent, and built around
-                quality.
+                Luxe Homes Royale delivers high quality residential construction,
+                renovations, and full home transformations across Long Island with
+                craftsmanship, clarity, and detail focused execution.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
@@ -123,16 +102,16 @@ export default function HomePage() {
                   href="/contact"
                   className="inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"
                 >
-                  Request a Quote
+                  Request Quote
                 </Link>
               </div>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 {[
-                  "Custom builds",
+                  "Custom home building",
                   "Renovations",
-                  "House transformations",
-                  "Detail focused execution",
+                  "Home transformations",
+                  "Serving Long Island, NY",
                 ].map((item) => (
                   <div
                     key={item}
@@ -163,18 +142,21 @@ export default function HomePage() {
                   </h2>
 
                   <p className="mt-3 max-w-md text-white/70">
-                    Custom builds, renovations, and home transformations with premium craftsmanship and refined execution.
+                    Custom builds, renovations, and home transformations with
+                    premium craftsmanship and refined execution.
                   </p>
 
                   <div className="mt-6 flex flex-wrap justify-center gap-3">
-                    {["Custom Builds", "Renovations", "Transformations"].map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-full border border-white/10 bg-black/40 px-4 py-2 text-sm text-white/80"
-                      >
-                        {item}
-                      </span>
-                    ))}
+                    {["Custom Builds", "Renovations", "Transformations"].map(
+                      (item) => (
+                        <span
+                          key={item}
+                          className="rounded-full border border-white/10 bg-black/40 px-4 py-2 text-sm text-white/80"
+                        >
+                          {item}
+                        </span>
+                      )
+                    )}
                   </div>
                 </div>
               </div>
@@ -186,15 +168,18 @@ export default function HomePage() {
       <section className="mx-auto max-w-6xl px-5 py-16">
         <div className="flex items-end justify-between gap-6">
           <div>
-            <p className="text-sm font-medium uppercase tracking-[0.2em]" style={{ color: accent }}>
+            <p
+              className="text-sm font-medium uppercase tracking-[0.2em]"
+              style={{ color: accent }}
+            >
               Featured Projects
             </p>
             <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
               Recent homes and transformations
             </h2>
             <p className="mt-3 max-w-2xl text-white/70">
-              Explore a selection of recent work and get a feel for the level
-              of finish, design direction, and quality behind Luxe Homes Royale.
+              Explore recent work and see the quality, design direction, and level
+              of finish behind Luxe Homes Royale.
             </p>
           </div>
 
@@ -207,8 +192,43 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {featuredProjects.map((project) => (
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
+          <Link
+            href={`/projects/${featuredProjects[0].slug}`}
+            className="group overflow-hidden rounded-3xl border border-white/10 bg-white/5 md:col-span-2"
+          >
+            <div className="grid md:grid-cols-[1.3fr_1fr]">
+              <div className="relative min-h-[380px]">
+                <Image
+                  src={featuredProjects[0].image}
+                  alt={featuredProjects[0].name}
+                  fill
+                  className="object-cover transition duration-300 group-hover:scale-105"
+                  sizes="100vw"
+                />
+              </div>
+
+              <div className="flex flex-col justify-center p-8">
+                <p className="text-xs uppercase tracking-[0.2em] text-white/50">
+                  {featuredProjects[0].label}
+                </p>
+                <h3 className="mt-3 text-3xl font-semibold">
+                  {featuredProjects[0].name}
+                </h3>
+                <p className="mt-3 text-white/65">{featuredProjects[0].address}</p>
+                <p className="mt-5 max-w-xl text-white/70">
+                  A dramatic full home transformation featuring a redesigned exterior,
+                  modern open concept kitchen, upgraded bathrooms, custom fireplace
+                  feature wall, and refined finishes throughout.
+                </p>
+                <p className="mt-6 text-sm font-semibold" style={{ color: accent }}>
+                  View Project
+                </p>
+              </div>
+            </div>
+          </Link>
+
+          {featuredProjects.slice(1).map((project) => (
             <Link
               key={project.slug}
               href={`/projects/${project.slug}`}
@@ -220,7 +240,7 @@ export default function HomePage() {
                   alt={project.name}
                   fill
                   className="object-cover transition duration-300 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
 
@@ -229,6 +249,7 @@ export default function HomePage() {
                   {project.label}
                 </p>
                 <h3 className="mt-2 text-xl font-semibold">{project.name}</h3>
+                <p className="mt-2 text-sm text-white/65">{project.address}</p>
                 <p className="mt-4 text-sm font-semibold" style={{ color: accent }}>
                   View Project
                 </p>
@@ -240,16 +261,18 @@ export default function HomePage() {
 
       <section className="mx-auto max-w-6xl px-5 py-16">
         <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 md:p-10">
-          <p className="text-sm font-medium uppercase tracking-[0.2em]" style={{ color: accent }}>
+          <p
+            className="text-sm font-medium uppercase tracking-[0.2em]"
+            style={{ color: accent }}
+          >
             Our Process
           </p>
           <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
             A straightforward building process
           </h2>
           <p className="mt-3 max-w-2xl text-white/70">
-            Great results come from a clear process. We keep the project moving
-            with planning, communication, and execution that stays focused on
-            the final outcome.
+            Great results come from a clear process. We keep projects moving with
+            planning, communication, and execution focused on the final outcome.
           </p>
 
           <div className="mt-8 grid gap-6 md:grid-cols-3">
@@ -275,33 +298,19 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-16">
-        <div className="grid gap-6 md:grid-cols-3">
-          {testimonials.map((item, index) => (
-            <div
-              key={index}
-              className="rounded-3xl border border-white/10 bg-white/5 p-6"
-            >
-              <p className="text-lg leading-8 text-white/85">“{item.quote}”</p>
-              <p className="mt-5 text-sm font-semibold" style={{ color: accent }}>
-                {item.name}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-5 py-16">
         <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 md:p-10">
-          <p className="text-sm font-medium uppercase tracking-[0.2em]" style={{ color: accent }}>
+          <p
+            className="text-sm font-medium uppercase tracking-[0.2em]"
+            style={{ color: accent }}
+          >
             Why Luxe Homes Royale
           </p>
           <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
             Plan well. Build well. Finish strong.
           </h2>
           <p className="mt-3 max-w-3xl text-white/70">
-            We believe strong homes and strong results come from thoughtful
-            planning, skilled execution, and a finished product that feels
-            refined and complete.
+            We believe strong homes and strong results come from thoughtful planning,
+            skilled execution, and a finished product that feels refined and complete.
           </p>
 
           <div className="mt-8 grid gap-6 md:grid-cols-3">
@@ -324,15 +333,18 @@ export default function HomePage() {
         <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 md:p-10">
           <div className="grid gap-6 md:grid-cols-[1.5fr_auto] md:items-center">
             <div>
-              <p className="text-sm font-medium uppercase tracking-[0.2em]" style={{ color: accent }}>
+              <p
+                className="text-sm font-medium uppercase tracking-[0.2em]"
+                style={{ color: accent }}
+              >
                 Get In Touch
               </p>
               <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
                 Ready to start your project?
               </h2>
               <p className="mt-3 max-w-2xl text-white/70">
-                We would love to talk through your project, answer questions,
-                and help you understand the next steps.
+                We would love to talk through your project, answer questions, and
+                help you understand the next steps.
               </p>
             </div>
 
