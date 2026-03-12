@@ -76,14 +76,14 @@ export default function SiteHeader() {
                     className="block rounded-xl px-4 py-3 text-white/85 hover:bg-white/10"
                     onClick={() => setProjectsOpen(false)}
                   >
-                    Oceanside Home Transformation
+                    328 Concord Ave
                   </Link>
                   <Link
                     href="/projects/3811-illona"
                     className="block rounded-xl px-4 py-3 text-white/85 hover:bg-white/10"
                     onClick={() => setProjectsOpen(false)}
                   >
-                    Illona Lane Home Transformation
+                    3811 Illona Lane
                   </Link>
                 </div>
               )}

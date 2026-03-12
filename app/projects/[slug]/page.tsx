@@ -8,7 +8,7 @@ const accent = "#22d3ee";
 const projects = [
   {
     slug: "328-concord",
-    name: "Oceanside Home Transformation",
+    name: "328 Concord Ave",
     location: "Oceanside, NY 11572",
     fullAddress: "328 Concord Ave, Oceanside, NY 11572",
     type: "Full Home Transformation",
@@ -38,9 +38,9 @@ const projects = [
   },
   {
     slug: "3811-illona",
-    name: "Illona Lane Home Transformation",
-    location: "Long Island, NY",
-    fullAddress: "3811 Illona Lane, Long Island, NY",
+    name: "3811 Illona Lane",
+    location: "Oceanside, NY 11572",
+    fullAddress: "3811 Illona Lane, Oceanside, NY 11572",
     type: "Full Home Transformation",
     hero: "/project-images/3811-illona/Front.jpeg",
     beforeImage: "/project-images/3811-illona/Before.jpeg",
@@ -125,12 +125,12 @@ export default async function ProjectDetailPage({
           </div>
 
           <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-3">
-            <div className="relative mx-auto aspect-[9/16] w-full max-w-md">
+            <div className="relative aspect-[4/3] w-full">
               <Image
                 src={project.hero}
                 alt={project.name}
                 fill
-                className="rounded-2xl object-contain"
+                className="rounded-2xl object-cover"
                 priority
               />
             </div>

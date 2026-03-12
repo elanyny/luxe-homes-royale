@@ -7,17 +7,21 @@ const accent = "#22d3ee";
 const featuredProjects = [
   {
     slug: "328-concord",
-    name: "Oceanside Home Transformation",
+    name: "328 Concord Ave",
     address: "328 Concord Ave, Oceanside, NY 11572",
     label: "Full Home Transformation",
     image: "/project-images/328-concord/Front.JPG",
+    description:
+      "A full interior and exterior renovation with an open kitchen, upgraded bathrooms, and refined custom details.",
   },
   {
     slug: "3811-illona",
-    name: "Illona Lane Home Transformation",
-    address: "3811 Illona Lane, Long Island, NY",
+    name: "3811 Illona Lane",
+    address: "3811 Illona Lane, Oceanside, NY 11572",
     label: "Full Home Transformation",
     image: "/project-images/3811-illona/Front.jpeg",
+    description:
+      "A dated colonial reworked into a modern home with a custom iron entry, waterfall-island kitchen, deck, and patio.",
   },
 ];
 
@@ -186,64 +190,44 @@ export default function HomePage() {
         </div>
 
         <div className="mt-8 grid gap-6 md:grid-cols-2">
-          <Link
-            href={`/projects/${featuredProjects[0].slug}`}
-            className="group overflow-hidden rounded-3xl border border-white/10 bg-white/5 md:col-span-2"
-          >
-            <div className="grid md:grid-cols-[1.3fr_1fr]">
-              <div className="relative min-h-[380px]">
-                <Image
-                  src={featuredProjects[0].image}
-                  alt={featuredProjects[0].name}
-                  fill
-                  className="object-cover transition duration-300 group-hover:scale-105"
-                  sizes="100vw"
-                />
-              </div>
-
-              <div className="flex flex-col justify-center p-8">
-                <p className="text-xs uppercase tracking-[0.2em] text-white/50">
-                  {featuredProjects[0].label}
-                </p>
-                <h3 className="mt-3 text-3xl font-semibold">
-                  {featuredProjects[0].name}
-                </h3>
-                <p className="mt-3 text-white/65">{featuredProjects[0].address}</p>
-                <p className="mt-5 max-w-xl text-white/70">
-                  A dramatic full home transformation featuring a redesigned exterior,
-                  modern open concept kitchen, upgraded bathrooms, custom fireplace
-                  feature wall, and refined finishes throughout.
-                </p>
-                <p className="mt-6 text-sm font-semibold" style={{ color: accent }}>
-                  View Project
-                </p>
-              </div>
-            </div>
-          </Link>
-
-          {featuredProjects.slice(1).map((project) => (
+          {featuredProjects.map((project) => (
             <Link
               key={project.slug}
               href={`/projects/${project.slug}`}
-              className="group overflow-hidden rounded-3xl border border-white/10 bg-white/5"
+              className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30 hover:bg-white/[0.07]"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src={project.image}
                   alt={project.name}
                   fill
-                  className="object-cover transition duration-300 group-hover:scale-105"
+                  className="object-cover transition duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
               </div>
 
-              <div className="p-5">
-                <p className="text-xs uppercase tracking-[0.2em] text-white/50">
-                  {project.label}
+              <div className="p-6">
+                <div className="flex flex-wrap items-center gap-3">
+                  <p
+                    className="text-xs uppercase tracking-[0.2em]"
+                    style={{ color: accent }}
+                  >
+                    {project.label}
+                  </p>
+                  <span className="h-1 w-1 rounded-full bg-white/25" />
+                  <p className="text-xs uppercase tracking-[0.2em] text-white/45">
+                    Oceanside, NY
+                  </p>
+                </div>
+                <h3 className="mt-3 text-2xl font-semibold md:text-3xl">
+                  {project.name}
+                </h3>
+                <p className="mt-2 text-white/65">{project.address}</p>
+                <p className="mt-4 text-sm leading-7 text-white/72">
+                  {project.description}
                 </p>
-                <h3 className="mt-2 text-xl font-semibold">{project.name}</h3>
-                <p className="mt-2 text-sm text-white/65">{project.address}</p>
-                <p className="mt-4 text-sm font-semibold" style={{ color: accent }}>
+                <p className="mt-5 text-sm font-semibold" style={{ color: accent }}>
                   View Project
                 </p>
               </div>

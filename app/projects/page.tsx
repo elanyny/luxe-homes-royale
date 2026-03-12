@@ -4,8 +4,9 @@ import Image from "next/image";
 const projects = [
   {
     slug: "328-concord",
-    name: "Oceanside Home Transformation",
-    location: "328 Concord Ave, Oceanside, NY 11572",
+    name: "328 Concord Ave",
+    location: "Oceanside, NY 11572",
+    fullAddress: "328 Concord Ave, Oceanside, NY 11572",
     type: "Full Home Transformation",
     cover: "/project-images/328-concord/Front.JPG",
     summary:
@@ -13,8 +14,9 @@ const projects = [
   },
   {
     slug: "3811-illona",
-    name: "Illona Lane Home Transformation",
-    location: "3811 Illona Lane, Long Island, NY",
+    name: "3811 Illona Lane",
+    location: "Oceanside, NY 11572",
+    fullAddress: "3811 Illona Lane, Oceanside, NY 11572",
     type: "Full Home Transformation",
     cover: "/project-images/3811-illona/Front.jpeg",
     summary:
@@ -46,45 +48,43 @@ export default function ProjectsPage() {
 
       <section className="mx-auto max-w-6xl px-5 pt-12">
         <div className="grid gap-6 md:grid-cols-2">
-        {projects.map((p, index) => (
-          <Link
-            key={p.slug}
-            href={`/projects/${p.slug}`}
-            className={`group overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30 hover:bg-white/[0.07] ${
-              index === 0 ? "md:col-span-2" : ""
-            }`}
-          >
-            <div className={`relative ${index === 0 ? "aspect-[16/8]" : "aspect-[4/3]"}`}>
-              <Image
-                src={p.cover}
-                alt={p.name}
-                fill
-                className="object-cover transition duration-300 group-hover:scale-105"
-                sizes="100vw"
-              />
-            </div>
+          {projects.map((p) => (
+            <Link
+              key={p.slug}
+              href={`/projects/${p.slug}`}
+              className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30 hover:bg-white/[0.07]"
+            >
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={p.cover}
+                  alt={p.name}
+                  fill
+                  className="object-cover transition duration-300 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
 
-            <div className="p-6">
-              <div className="flex flex-wrap items-center gap-3">
-                <p className="text-xs uppercase tracking-[0.18em] text-cyan-400">
-                  {p.type}
+              <div className="p-6">
+                <div className="flex flex-wrap items-center gap-3">
+                  <p className="text-xs uppercase tracking-[0.18em] text-cyan-400">
+                    {p.type}
+                  </p>
+                  <span className="h-1 w-1 rounded-full bg-white/25" />
+                  <p className="text-xs uppercase tracking-[0.18em] text-white/45">
+                    {p.location}
+                  </p>
+                </div>
+                <h2 className="mt-3 text-2xl font-semibold md:text-3xl">{p.name}</h2>
+                <p className="mt-2 text-white/65">{p.fullAddress}</p>
+                <p className="mt-4 max-w-2xl text-sm leading-7 text-white/72">
+                  {p.summary}
                 </p>
-                <span className="h-1 w-1 rounded-full bg-white/25" />
-                <p className="text-xs uppercase tracking-[0.18em] text-white/45">
-                  Featured Project
+                <p className="mt-5 text-sm font-semibold text-cyan-400">
+                  View Project
                 </p>
               </div>
-              <h2 className="mt-3 text-2xl font-semibold md:text-3xl">{p.name}</h2>
-              <p className="mt-2 text-white/65">{p.location}</p>
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-white/72">
-                {p.summary}
-              </p>
-              <p className="mt-5 text-sm font-semibold text-cyan-400">
-                View Project
-              </p>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          ))}
         </div>
       </section>
     </main>
