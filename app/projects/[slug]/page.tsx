@@ -36,6 +36,45 @@ const projects = [
     summary:
       "This Oceanside property underwent a complete exterior and interior transformation. The project included a redesigned facade, modern open concept kitchen with waterfall island, upgraded bathrooms, a custom fireplace feature wall, and refined finishes throughout the home.",
   },
+  {
+    slug: "3811-illona",
+    name: "Illona Lane Home Transformation",
+    location: "Long Island, NY",
+    fullAddress: "3811 Illona Lane, Long Island, NY",
+    type: "Full Home Transformation",
+    hero: "/project-images/3811-illona/Front.jpeg",
+    beforeImage: "/project-images/3811-illona/Before.jpeg",
+    afterImage: "/project-images/3811-illona/After.jpeg",
+    gallery: [
+      "/project-images/3811-illona/Front.jpeg",
+      "/project-images/3811-illona/After.jpeg",
+      "/project-images/3811-illona/FrontCorner.jpeg",
+      "/project-images/3811-illona/FrontClose.jpeg",
+      "/project-images/3811-illona/FrontClose2.jpeg",
+      "/project-images/3811-illona/Door.jpeg",
+      "/project-images/3811-illona/Kitchen.jpeg",
+      "/project-images/3811-illona/Kitchen2.jpeg",
+      "/project-images/3811-illona/Bathroom.jpeg",
+      "/project-images/3811-illona/Fireplace.jpeg",
+      "/project-images/3811-illona/Terrace.jpeg",
+      "/project-images/3811-illona/Back.jpeg",
+      "/project-images/3811-illona/BackStairs.jpeg",
+      "/project-images/3811-illona/FrontNight.jpeg",
+      "/project-images/3811-illona/FrontNight2.jpeg",
+      "/project-images/3811-illona/FrontNight3.jpeg",
+    ],
+    highlights: [
+      "Complete exterior transformation with modern stucco and dark wood facade",
+      "Custom ornamental iron front door with sidelights",
+      "Open concept kitchen with marble waterfall island and pendant lighting",
+      "Black marble feature fireplace wall",
+      "Marble tile bathrooms with LED backlit mirrors",
+      "New elevated composite deck with stamped concrete patio below",
+      "Custom geometric iron railings throughout",
+    ],
+    summary:
+      "3811 Illona Lane underwent a dramatic full home transformation from a dated colonial into a striking modern residence. The project featured a complete exterior redesign, a custom ornamental iron entry door, an open concept kitchen with a marble waterfall island, a black marble fireplace feature wall, marble tile bathrooms, and a new elevated deck with a stamped concrete patio — finished with custom iron railings and refined details throughout.",
+  },
 ];
 
 export default async function ProjectDetailPage({

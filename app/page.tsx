@@ -13,18 +13,11 @@ const featuredProjects = [
     image: "/project-images/328-concord/Front.JPG",
   },
   {
-    slug: "project-2",
-    name: "Project Two",
-    address: "Coming Soon",
-    label: "Coming Soon",
-    image: "/projects/project-2/01.jpg",
-  },
-  {
-    slug: "project-3",
-    name: "Project Three",
-    address: "Coming Soon",
-    label: "Coming Soon",
-    image: "/projects/project-3/01.jpg",
+    slug: "3811-illona",
+    name: "Illona Lane Home Transformation",
+    address: "3811 Illona Lane, Long Island, NY",
+    label: "Full Home Transformation",
+    image: "/project-images/3811-illona/Front.jpeg",
   },
 ];
 

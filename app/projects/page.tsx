@@ -10,18 +10,11 @@ const projects = [
     cover: "/project-images/328-concord/Front.JPG",
   },
   {
-    slug: "project-2",
-    name: "Project Two",
-    location: "Coming Soon",
-    type: "Coming Soon",
-    cover: "/projects/project-2/01.jpg",
-  },
-  {
-    slug: "project-3",
-    name: "Project Three",
-    location: "Coming Soon",
-    type: "Coming Soon",
-    cover: "/projects/project-3/01.jpg",
+    slug: "3811-illona",
+    name: "Illona Lane Home Transformation",
+    location: "3811 Illona Lane, Long Island, NY",
+    type: "Full Home Transformation",
+    cover: "/project-images/3811-illona/Front.jpeg",
   },
 ];
 
