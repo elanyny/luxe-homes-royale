@@ -11,20 +11,17 @@ const featuredProjects = [
     address: "328 Concord Ave, Oceanside, NY 11572",
     label: "Full Home Transformation",
     image: "/project-images/328-concord/Front.JPG",
+    description:
+      "A dramatic exterior and interior renovation with a modern kitchen, upgraded baths, and polished finishes throughout.",
   },
   {
-    slug: "project-2",
-    name: "Project Two",
-    address: "Coming Soon",
-    label: "Coming Soon",
-    image: "/projects/project-2/01.jpg",
-  },
-  {
-    slug: "project-3",
-    name: "Project Three",
-    address: "Coming Soon",
-    label: "Coming Soon",
-    image: "/projects/project-3/01.jpg",
+    slug: "3811-illona",
+    name: "Illona Lane Home Transformation",
+    address: "3811 Illona Lane, Long Island, NY",
+    label: "Full Home Transformation",
+    image: "/project-images/3811-illona/Front.jpeg",
+    description:
+      "A dated colonial reimagined with a modern facade, ornamental iron entry, waterfall-island kitchen, and elevated deck.",
   },
 ];
 
@@ -217,9 +214,7 @@ export default function HomePage() {
                 </h3>
                 <p className="mt-3 text-white/65">{featuredProjects[0].address}</p>
                 <p className="mt-5 max-w-xl text-white/70">
-                  A dramatic full home transformation featuring a redesigned exterior,
-                  modern open concept kitchen, upgraded bathrooms, custom fireplace
-                  feature wall, and refined finishes throughout.
+                  {featuredProjects[0].description}
                 </p>
                 <p className="mt-6 text-sm font-semibold" style={{ color: accent }}>
                   View Project
@@ -250,6 +245,9 @@ export default function HomePage() {
                 </p>
                 <h3 className="mt-2 text-xl font-semibold">{project.name}</h3>
                 <p className="mt-2 text-sm text-white/65">{project.address}</p>
+                <p className="mt-3 text-sm leading-6 text-white/70">
+                  {project.description}
+                </p>
                 <p className="mt-4 text-sm font-semibold" style={{ color: accent }}>
                   View Project
                 </p>
