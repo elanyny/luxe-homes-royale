@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, CheckCircle2, PhoneCall } from "lucide-react";
+import { siteContact } from "./siteData";
 
 const accent = "#22d3ee";
 
@@ -22,6 +23,15 @@ const featuredProjects = [
     image: "/project-images/3811-illona/Front.jpeg",
     description:
       "A dated colonial reworked into a modern home with a custom iron entry, waterfall-island kitchen, deck, and patio.",
+  },
+  {
+    slug: "3446-frederick",
+    name: "3446 Frederick St",
+    address: "3446 Frederick St",
+    label: "Second Story Addition",
+    image: "/project-images/3446-frederick/Front.JPG",
+    description:
+      "A major transformation featuring the addition of a full second story and updated interior spaces throughout the home.",
   },
 ];
 
@@ -60,14 +70,14 @@ export default function HomePage() {
     <main>
       <section className="relative overflow-hidden">
         <div
-          className="absolute inset-0 opacity-20 blur-3xl"
+          className="pointer-events-none absolute inset-0 opacity-20 blur-3xl"
           style={{
             background:
               "radial-gradient(circle at top right, rgba(34,211,238,0.35), transparent 35%)",
           }}
         />
-        <div className="mx-auto max-w-6xl px-5 py-16 md:py-24">
-          <div className="grid gap-10 md:grid-cols-2 md:items-center">
+        <div className="mx-auto max-w-7xl px-5 py-16 md:py-24">
+          <div className="grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-center">
             <div>
               <p
                 className="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium uppercase tracking-[0.2em]"
@@ -125,36 +135,17 @@ export default function HomePage() {
             </div>
 
             <div className="flex items-center justify-center">
-              <div className="w-full max-w-xl rounded-[2rem] border border-white/10 bg-white/5 p-10 shadow-2xl backdrop-blur">
-                <div className="flex flex-col items-center text-center">
-                  <div
-                    className="flex h-28 w-28 items-center justify-center rounded-full text-3xl font-bold text-black"
-                    style={{ backgroundColor: accent }}
-                  >
-                    L
-                  </div>
-
-                  <h2 className="mt-6 text-3xl font-semibold md:text-4xl">
-                    Luxe Homes Royale
-                  </h2>
-
-                  <p className="mt-3 max-w-md text-white/70">
-                    Custom builds, renovations, and home transformations with
-                    premium craftsmanship and refined execution.
-                  </p>
-
-                  <div className="mt-6 flex flex-wrap justify-center gap-3">
-                    {["Custom Builds", "Renovations", "Transformations"].map(
-                      (item) => (
-                        <span
-                          key={item}
-                          className="rounded-full border border-white/10 bg-black/40 px-4 py-2 text-sm text-white/80"
-                        >
-                          {item}
-                        </span>
-                      )
-                    )}
-                  </div>
+              <div className="relative w-full max-w-4xl">
+                <div className="pointer-events-none absolute inset-0 scale-95 bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.28),transparent_60%)] blur-3xl" />
+                <div className="relative aspect-[1.15/1] overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] px-2 py-6 shadow-2xl backdrop-blur md:aspect-[1.3/1] md:px-4 md:py-8">
+                  <Image
+                    src="/project-images/Luxe Homes Royale Logo.JPG"
+                    alt="Luxe Homes Royale logo"
+                    fill
+                    className="scale-[1.08] object-contain md:scale-[1.16]"
+                    sizes="(max-width: 768px) 100vw, 60vw"
+                    priority
+                  />
                 </div>
               </div>
             </div>
@@ -335,11 +326,11 @@ export default function HomePage() {
               </Link>
 
               <a
-                href="tel:5551234567"
+                href={siteContact.phoneHref}
                 className="inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"
               >
                 <PhoneCall className="h-4 w-4" />
-                Call Now
+                {siteContact.phoneDisplay}
               </a>
             </div>
           </div>

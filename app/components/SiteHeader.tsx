@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { Sparkles, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const accent = "#22d3ee";
@@ -37,13 +38,14 @@ export default function SiteHeader() {
       <div className="mx-auto max-w-6xl px-5">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-semibold">
-            <span
-              className="inline-flex h-8 w-8 items-center justify-center rounded-lg"
-              style={{
-                background: `linear-gradient(135deg, ${accent}, rgba(34,211,238,0.2))`,
-              }}
-            >
-              <Sparkles className="h-4 w-4 text-black" />
+            <span className="relative inline-flex h-10 w-10 overflow-hidden rounded-lg border border-white/10 bg-white/5">
+              <Image
+                src="/project-images/Luxe Homes Royale Logo.JPG"
+                alt="Luxe Homes Royale logo"
+                fill
+                className="object-cover"
+                sizes="40px"
+              />
             </span>
             Luxe Homes Royale
           </Link>
@@ -84,6 +86,13 @@ export default function SiteHeader() {
                     onClick={() => setProjectsOpen(false)}
                   >
                     3811 Illona Lane
+                  </Link>
+                  <Link
+                    href="/projects/3446-frederick"
+                    className="block rounded-xl px-4 py-3 text-white/85 hover:bg-white/10"
+                    onClick={() => setProjectsOpen(false)}
+                  >
+                    3446 Frederick St
                   </Link>
                 </div>
               )}

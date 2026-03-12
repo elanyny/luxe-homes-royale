@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, CheckCircle2, PhoneCall } from "lucide-react";
+import { siteContact } from "../siteData";
 
 const accent = "#22d3ee";
 
@@ -22,6 +23,15 @@ const featuredProjects = [
     image: "/project-images/3811-illona/Front.jpeg",
     description:
       "A dated colonial reimagined with a modern facade, ornamental iron entry, waterfall-island kitchen, and elevated deck.",
+  },
+  {
+    slug: "3446-frederick",
+    name: "3446 Frederick St",
+    address: "3446 Frederick St",
+    label: "Second Story Addition",
+    image: "/project-images/3446-frederick/Front.JPG",
+    description:
+      "A full second-story addition that reshaped the home and expanded both its scale and interior functionality.",
   },
 ];
 
@@ -60,7 +70,7 @@ export default function HomePage() {
     <main>
       <section className="relative overflow-hidden">
         <div
-          className="absolute inset-0 opacity-20 blur-3xl"
+          className="pointer-events-none absolute inset-0 opacity-20 blur-3xl"
           style={{
             background:
               "radial-gradient(circle at top right, rgba(34,211,238,0.35), transparent 35%)",
@@ -127,11 +137,14 @@ export default function HomePage() {
             <div className="flex items-center justify-center">
               <div className="w-full max-w-xl rounded-[2rem] border border-white/10 bg-white/5 p-10 shadow-2xl backdrop-blur">
                 <div className="flex flex-col items-center text-center">
-                  <div
-                    className="flex h-28 w-28 items-center justify-center rounded-full text-3xl font-bold text-black"
-                    style={{ backgroundColor: accent }}
-                  >
-                    L
+                  <div className="relative h-28 w-28 overflow-hidden rounded-full border border-white/10 bg-white/5">
+                    <Image
+                      src="/project-images/Luxe Homes Royale Logo.JPG"
+                      alt="Luxe Homes Royale logo"
+                      fill
+                      className="object-cover"
+                      sizes="112px"
+                    />
                   </div>
 
                   <h2 className="mt-6 text-3xl font-semibold md:text-4xl">
@@ -335,11 +348,11 @@ export default function HomePage() {
               </Link>
 
               <a
-                href="tel:5551234567"
+                href={siteContact.phoneHref}
                 className="inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"
               >
                 <PhoneCall className="h-4 w-4" />
-                Call Now
+                {siteContact.phoneDisplay}
               </a>
             </div>
           </div>

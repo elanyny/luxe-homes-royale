@@ -1,28 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-
-const projects = [
-  {
-    slug: "328-concord",
-    name: "328 Concord Ave",
-    location: "Oceanside, NY 11572",
-    fullAddress: "328 Concord Ave, Oceanside, NY 11572",
-    type: "Full Home Transformation",
-    cover: "/project-images/328-concord/Front.JPG",
-    summary:
-      "A full exterior and interior transformation with an open concept kitchen, upgraded baths, and custom feature details.",
-  },
-  {
-    slug: "3811-illona",
-    name: "3811 Illona Lane",
-    location: "Oceanside, NY 11572",
-    fullAddress: "3811 Illona Lane, Oceanside, NY 11572",
-    type: "Full Home Transformation",
-    cover: "/project-images/3811-illona/Front.jpeg",
-    summary:
-      "A dated colonial rebuilt into a modern statement home with a custom iron entry, marble kitchen, deck, and patio.",
-  },
-];
+import { projects } from "./projectData";
 
 export default function ProjectsPage() {
   return (
@@ -48,36 +26,54 @@ export default function ProjectsPage() {
 
       <section className="mx-auto max-w-6xl px-5 pt-12">
         <div className="grid gap-6 md:grid-cols-2">
-          {projects.map((p) => (
+          {projects.map((project) => (
             <Link
-              key={p.slug}
-              href={`/projects/${p.slug}`}
+              key={project.slug}
+              href={`/projects/${project.slug}`}
               className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30 hover:bg-white/[0.07]"
             >
               <div className="relative aspect-[4/3]">
-                <Image
-                  src={p.cover}
-                  alt={p.name}
-                  fill
-                  className="object-cover transition duration-300 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
+                {project.cover ? (
+                  <Image
+                    src={project.cover}
+                    alt={project.name}
+                    fill
+                    className="object-cover transition duration-300 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                ) : (
+                  <div className="flex h-full items-end bg-[linear-gradient(135deg,rgba(34,211,238,0.12),rgba(255,255,255,0.04))] p-6">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.18em] text-cyan-400">
+                        Coming Soon
+                      </p>
+                      <h2 className="mt-3 text-3xl font-semibold text-white">
+                        {project.name}
+                      </h2>
+                      <p className="mt-2 max-w-md text-sm leading-6 text-white/65">
+                        Images for this transformation will be added next.
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
 
               <div className="p-6">
                 <div className="flex flex-wrap items-center gap-3">
                   <p className="text-xs uppercase tracking-[0.18em] text-cyan-400">
-                    {p.type}
+                    {project.type}
                   </p>
                   <span className="h-1 w-1 rounded-full bg-white/25" />
                   <p className="text-xs uppercase tracking-[0.18em] text-white/45">
-                    {p.location}
+                    {project.location}
                   </p>
                 </div>
-                <h2 className="mt-3 text-2xl font-semibold md:text-3xl">{p.name}</h2>
-                <p className="mt-2 text-white/65">{p.fullAddress}</p>
+                <h2 className="mt-3 text-2xl font-semibold md:text-3xl">
+                  {project.name}
+                </h2>
+                <p className="mt-2 text-white/65">{project.fullAddress}</p>
                 <p className="mt-4 max-w-2xl text-sm leading-7 text-white/72">
-                  {p.summary}
+                  {project.summary}
                 </p>
                 <p className="mt-5 text-sm font-semibold text-cyan-400">
                   View Project

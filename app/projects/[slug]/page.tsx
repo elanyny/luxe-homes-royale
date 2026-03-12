@@ -1,81 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import BeforeAfterSlider from "../../components/BeforeAfterSlider";
 import ProjectGalleryViewer from "../../components/ProjectGalleryViewer";
+import { projects } from "../projectData";
 
 const accent = "#22d3ee";
-
-const projects = [
-  {
-    slug: "328-concord",
-    name: "328 Concord Ave",
-    location: "Oceanside, NY 11572",
-    fullAddress: "328 Concord Ave, Oceanside, NY 11572",
-    type: "Full Home Transformation",
-    hero: "/project-images/328-concord/Main.JPG",
-    beforeImage: "/project-images/328-concord/Before.JPG",
-    afterImage: "/project-images/328-concord/Front.JPG",
-    gallery: [
-      "/project-images/328-concord/Front.JPG",
-      "/project-images/328-concord/Back.JPG",
-      "/project-images/328-concord/Kitchen.JPG",
-      "/project-images/328-concord/Kitchen2.JPG",
-      "/project-images/328-concord/Kitchen3.JPG",
-      "/project-images/328-concord/Bathroom.JPG",
-      "/project-images/328-concord/Bathroom2.JPG",
-      "/project-images/328-concord/Fireplace.JPG",
-      "/project-images/328-concord/Stairs.JPG",
-    ],
-    highlights: [
-      "Complete exterior transformation",
-      "Open concept kitchen with waterfall island",
-      "Modern bathrooms with illuminated mirrors",
-      "Custom fireplace feature wall",
-      "Updated staircase and refined interior finishes",
-    ],
-    summary:
-      "This Oceanside property underwent a complete exterior and interior transformation. The project included a redesigned facade, modern open concept kitchen with waterfall island, upgraded bathrooms, a custom fireplace feature wall, and refined finishes throughout the home.",
-  },
-  {
-    slug: "3811-illona",
-    name: "3811 Illona Lane",
-    location: "Oceanside, NY 11572",
-    fullAddress: "3811 Illona Lane, Oceanside, NY 11572",
-    type: "Full Home Transformation",
-    hero: "/project-images/3811-illona/Front.jpeg",
-    beforeImage: "/project-images/3811-illona/Before.jpeg",
-    afterImage: "/project-images/3811-illona/After.jpeg",
-    gallery: [
-      "/project-images/3811-illona/Front.jpeg",
-      "/project-images/3811-illona/After.jpeg",
-      "/project-images/3811-illona/FrontCorner.jpeg",
-      "/project-images/3811-illona/FrontClose.jpeg",
-      "/project-images/3811-illona/FrontClose2.jpeg",
-      "/project-images/3811-illona/Door.jpeg",
-      "/project-images/3811-illona/Kitchen.jpeg",
-      "/project-images/3811-illona/Kitchen2.jpeg",
-      "/project-images/3811-illona/Bathroom.jpeg",
-      "/project-images/3811-illona/Fireplace.jpeg",
-      "/project-images/3811-illona/Terrace.jpeg",
-      "/project-images/3811-illona/Back.jpeg",
-      "/project-images/3811-illona/BackStairs.jpeg",
-      "/project-images/3811-illona/FrontNight.jpeg",
-      "/project-images/3811-illona/FrontNight2.jpeg",
-      "/project-images/3811-illona/FrontNight3.jpeg",
-    ],
-    highlights: [
-      "Complete exterior transformation with modern stucco and dark wood facade",
-      "Custom ornamental iron front door with sidelights",
-      "Open concept kitchen with marble waterfall island and pendant lighting",
-      "Black marble feature fireplace wall",
-      "Marble tile bathrooms with LED backlit mirrors",
-      "New elevated composite deck with stamped concrete patio below",
-      "Custom geometric iron railings throughout",
-    ],
-    summary:
-      "3811 Illona Lane underwent a dramatic full home transformation from a dated colonial into a striking modern residence. The project featured a complete exterior redesign, a custom ornamental iron entry door, an open concept kitchen with a marble waterfall island, a black marble fireplace feature wall, marble tile bathrooms, and a new elevated deck with a stamped concrete patio — finished with custom iron railings and refined details throughout.",
-  },
-];
 
 export default async function ProjectDetailPage({
   params,
@@ -83,7 +13,7 @@ export default async function ProjectDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
+  const project = projects.find((item) => item.slug === slug);
 
   if (!project) return notFound();
 
@@ -125,15 +55,33 @@ export default async function ProjectDetailPage({
           </div>
 
           <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-3">
-            <div className="relative aspect-[4/3] w-full">
-              <Image
-                src={project.hero}
-                alt={project.name}
-                fill
-                className="rounded-2xl object-cover"
-                priority
-              />
-            </div>
+            {project.hero ? (
+              <div className="relative aspect-[4/3] w-full">
+                <Image
+                  src={project.hero}
+                  alt={project.name}
+                  fill
+                  className="rounded-2xl object-cover"
+                  priority
+                />
+              </div>
+            ) : (
+              <div className="flex aspect-[4/3] items-end rounded-2xl bg-[linear-gradient(135deg,rgba(34,211,238,0.12),rgba(255,255,255,0.04))] p-8">
+                <div>
+                  <p
+                    className="text-xs uppercase tracking-[0.2em]"
+                    style={{ color: accent }}
+                  >
+                    Images Pending
+                  </p>
+                  <h2 className="mt-3 text-3xl font-semibold">{project.name}</h2>
+                  <p className="mt-3 max-w-md text-white/65">
+                    Add the Frederick project photos to the new image folder and this
+                    section will be ready to display them.
+                  </p>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -145,35 +93,20 @@ export default async function ProjectDetailPage({
           polished, modern, and market ready home.
         </p>
 
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/5">
-            <div className="relative aspect-[4/3]">
-              <Image
-                src={project.beforeImage}
-                alt={`${project.name} before`}
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="p-4">
-              <p className="text-sm font-semibold text-white/70">Before</p>
-            </div>
+        {project.beforeImage && project.afterImage ? (
+          <div className="mt-8">
+            <BeforeAfterSlider
+              beforeImage={project.beforeImage}
+              afterImage={project.afterImage}
+              title={project.name}
+            />
           </div>
-
-          <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/5">
-            <div className="relative aspect-[4/3]">
-              <Image
-                src={project.afterImage}
-                alt={`${project.name} after`}
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="p-4">
-              <p className="text-sm font-semibold text-white/70">After</p>
-            </div>
+        ) : (
+          <div className="mt-8 rounded-3xl border border-dashed border-white/15 bg-white/5 p-6 text-white/65">
+            Before-and-after images will be added here once the Frederick project
+            photo set is available.
           </div>
-        </div>
+        )}
       </section>
 
       <section className="mx-auto max-w-6xl px-5 pt-14">
@@ -186,7 +119,13 @@ export default async function ProjectDetailPage({
           </div>
         </div>
 
-        <ProjectGalleryViewer images={project.gallery} title={project.name} />
+        {project.gallery.length > 0 ? (
+          <ProjectGalleryViewer images={project.gallery} title={project.name} />
+        ) : (
+          <div className="mt-8 rounded-3xl border border-dashed border-white/15 bg-white/5 p-6 text-white/65">
+            Gallery images for this project have not been added yet.
+          </div>
+        )}
       </section>
 
       <section className="mx-auto max-w-6xl px-5 pt-14">
