@@ -114,13 +114,6 @@ export default function SiteHeader() {
               {servicesOpen && (
                 <div className="absolute left-0 mt-3 w-64 rounded-2xl border border-white/10 bg-black/95 p-2 shadow-2xl">
                   <Link
-                    href="/services"
-                    className="block rounded-xl px-4 py-3 text-white/85 hover:bg-white/10"
-                    onClick={() => setServicesOpen(false)}
-                  >
-                    All Services
-                  </Link>
-                  <Link
                     href="/services/custom-home-building"
                     className="block rounded-xl px-4 py-3 text-white/85 hover:bg-white/10"
                     onClick={() => setServicesOpen(false)}

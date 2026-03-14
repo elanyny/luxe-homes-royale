@@ -69,24 +69,31 @@ export default function HomePage() {
   return (
     <main>
       <section className="relative overflow-hidden">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-20 blur-3xl"
-          style={{
-            background:
-              "radial-gradient(circle at top right, rgba(34,211,238,0.35), transparent 35%)",
-          }}
-        />
-        <div className="mx-auto max-w-7xl px-5 py-16 md:py-24">
-          <div className="grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+        <div className="absolute inset-0">
+          <Image
+            src="/project-images/3811-illona/After.jpeg"
+            alt="Luxury home exterior"
+            fill
+            priority
+            className="object-cover brightness-110"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.68)_0%,rgba(0,0,0,0.42)_45%,rgba(0,0,0,0.24)_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.24),transparent_30%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.08)_0%,rgba(0,0,0,0.01)_100%)]" />
+        </div>
+
+        <div className="relative mx-auto max-w-7xl px-5 py-20 md:py-28">
+          <div className="grid min-h-[72vh] gap-10 md:grid-cols-[1fr_0.8fr] md:items-end">
             <div>
               <p
-                className="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium uppercase tracking-[0.2em]"
+                className="inline-flex rounded-full border border-white/15 bg-black/30 px-4 py-2 text-xs font-medium uppercase tracking-[0.2em] shadow-lg backdrop-blur-sm"
                 style={{ color: accent }}
               >
                 Luxe Homes Royale
               </p>
 
-              <h1 className="mt-6 text-4xl font-semibold leading-tight md:text-6xl">
+              <h1 className="mt-6 max-w-4xl text-4xl font-semibold leading-tight text-white md:text-6xl">
                 Custom builds, renovations, and home transformations
               </h1>
 
@@ -107,7 +114,7 @@ export default function HomePage() {
 
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"
+                  className="inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-black/30 px-5 py-3 text-sm font-semibold text-white shadow-lg backdrop-blur-sm hover:bg-white/10"
                 >
                   Request Quote
                 </Link>
@@ -122,7 +129,7 @@ export default function HomePage() {
                 ].map((item) => (
                   <div
                     key={item}
-                    className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/80"
+                    className="flex items-center gap-3 rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white/85 shadow-lg backdrop-blur-sm"
                   >
                     <CheckCircle2
                       className="h-4 w-4 shrink-0"
@@ -134,19 +141,40 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="flex items-center justify-center">
-              <div className="relative w-full max-w-4xl">
-                <div className="pointer-events-none absolute inset-0 scale-95 bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.28),transparent_60%)] blur-3xl" />
-                <div className="relative aspect-[1.15/1] overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] px-2 py-6 shadow-2xl backdrop-blur md:aspect-[1.3/1] md:px-4 md:py-8">
-                  <Image
-                    src="/project-images/Luxe Homes Royale Logo.JPG"
-                    alt="Luxe Homes Royale logo"
-                    fill
-                    className="scale-[1.08] object-contain md:scale-[1.16]"
-                    sizes="(max-width: 768px) 100vw, 60vw"
-                    priority
-                  />
+            <div className="flex justify-start md:justify-end">
+              <div className="w-full max-w-md rounded-[2rem] border border-white/10 bg-black/45 p-6 shadow-2xl backdrop-blur-md">
+                <p
+                  className="text-xs font-medium uppercase tracking-[0.2em]"
+                  style={{ color: accent }}
+                >
+                  Featured Transformation
+                </p>
+                <h2 className="mt-3 text-2xl font-semibold text-white md:text-3xl">
+                  3811 Illona Lane
+                </h2>
+                <p className="mt-3 text-white/70">
+                  A dramatic full home transformation with a reimagined facade,
+                  custom iron entry, waterfall-island kitchen, and elevated deck.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-3 text-sm text-white/75">
+                  {["Exterior Redesign", "Modern Interior", "High-End Finishes"].map(
+                    (item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-white/80"
+                      >
+                        {item}
+                      </span>
+                    )
+                  )}
                 </div>
+                <Link
+                  href="/projects/3811-illona"
+                  className="mt-8 inline-flex items-center gap-2 text-sm font-semibold"
+                  style={{ color: accent }}
+                >
+                  Explore this project <ArrowRight className="h-4 w-4" />
+                </Link>
               </div>
             </div>
           </div>
@@ -162,7 +190,7 @@ export default function HomePage() {
             >
               Featured Projects
             </p>
-            <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
+            <h2 className="mt-3 text-3xl font-semibold text-white md:text-4xl">
               Recent homes and transformations
             </h2>
             <p className="mt-3 max-w-2xl text-white/70">
@@ -185,7 +213,7 @@ export default function HomePage() {
             <Link
               key={project.slug}
               href={`/projects/${project.slug}`}
-              className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30 hover:bg-white/[0.07]"
+              className="group overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-950/70 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30 hover:bg-zinc-900/80"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
@@ -211,7 +239,7 @@ export default function HomePage() {
                     Oceanside, NY
                   </p>
                 </div>
-                <h3 className="mt-3 text-2xl font-semibold md:text-3xl">
+                <h3 className="mt-3 text-2xl font-semibold text-white md:text-3xl">
                   {project.name}
                 </h3>
                 <p className="mt-2 text-white/65">{project.address}</p>
@@ -228,14 +256,14 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-16">
-        <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 md:p-10">
+        <div className="rounded-[2rem] border border-white/10 bg-zinc-950/65 p-8 md:p-10 backdrop-blur-sm">
           <p
             className="text-sm font-medium uppercase tracking-[0.2em]"
             style={{ color: accent }}
           >
             Our Process
           </p>
-          <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
+          <h2 className="mt-3 text-3xl font-semibold text-white md:text-4xl">
             A straightforward building process
           </h2>
           <p className="mt-3 max-w-2xl text-white/70">
@@ -266,14 +294,14 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-16">
-        <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 md:p-10">
+        <div className="rounded-[2rem] border border-white/10 bg-zinc-950/65 p-8 md:p-10 backdrop-blur-sm">
           <p
             className="text-sm font-medium uppercase tracking-[0.2em]"
             style={{ color: accent }}
           >
             Why Luxe Homes Royale
           </p>
-          <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
+          <h2 className="mt-3 text-3xl font-semibold text-white md:text-4xl">
             Plan well. Build well. Finish strong.
           </h2>
           <p className="mt-3 max-w-3xl text-white/70">
@@ -298,7 +326,7 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-16">
-        <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 md:p-10">
+        <div className="rounded-[2rem] border border-white/10 bg-zinc-950/65 p-8 md:p-10 backdrop-blur-sm">
           <div className="grid gap-6 md:grid-cols-[1.5fr_auto] md:items-center">
             <div>
               <p
@@ -307,7 +335,7 @@ export default function HomePage() {
               >
                 Get In Touch
               </p>
-              <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
+              <h2 className="mt-3 text-3xl font-semibold text-white md:text-4xl">
                 Ready to start your project?
               </h2>
               <p className="mt-3 max-w-2xl text-white/70">
@@ -327,7 +355,7 @@ export default function HomePage() {
 
               <a
                 href={siteContact.phoneHref}
-                className="inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"
+                className="inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-black/30 px-5 py-3 text-sm font-semibold text-white shadow-lg backdrop-blur-sm hover:bg-white/10"
               >
                 <PhoneCall className="h-4 w-4" />
                 {siteContact.phoneDisplay}

@@ -37,8 +37,8 @@ export default function SiteFooter() {
               <Link href="/projects" className="hover:text-white">
                 Projects
               </Link>
-              <Link href="/services" className="hover:text-white">
-                Services
+              <Link href="/services/custom-home-building" className="hover:text-white">
+                Custom Home Building
               </Link>
               <Link href="/contact" className="hover:text-white">
                 Contact
