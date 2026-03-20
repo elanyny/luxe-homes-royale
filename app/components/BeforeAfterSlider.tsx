@@ -19,27 +19,30 @@ export default function BeforeAfterSlider({
   return (
     <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/5">
       <div className="relative aspect-[4/3]">
+        {/* After image fills the background (right side) */}
         <Image
-          src={beforeImage}
-          alt={`${title} before`}
+          src={afterImage}
+          alt={`${title} after`}
           fill
           className="object-cover"
         />
 
+        {/* Before image clips from the left */}
         <div
           className="absolute inset-y-0 left-0 overflow-hidden"
           style={{ width: `${position}%` }}
         >
           <div className="relative h-full w-full min-w-[320px]">
             <Image
-              src={afterImage}
-              alt={`${title} after`}
+              src={beforeImage}
+              alt={`${title} before`}
               fill
               className="object-cover"
             />
           </div>
         </div>
 
+        {/* Divider line */}
         <div
           className="absolute inset-y-0 z-10 w-0.5 bg-white/90"
           style={{ left: `${position}%` }}
@@ -49,6 +52,7 @@ export default function BeforeAfterSlider({
           </div>
         </div>
 
+        {/* Labels — Before on left, After on right */}
         <div className="absolute left-4 top-4 rounded-full bg-black/60 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-white/80">
           Before
         </div>

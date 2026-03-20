@@ -1,10 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { projects } from "./projectData";
 
+export const metadata: Metadata = {
+  title: "Projects",
+  description:
+    "Explore completed home transformations, renovations, and custom builds by Luxe Homes Royale across Long Island, NY.",
+};
+
 export default function ProjectsPage() {
   return (
-    <main className="pb-16">
+    <main className="pb-20">
       <section className="relative overflow-hidden border-b border-white/10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.18),transparent_32%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.08),transparent_28%)]" />
         <div className="relative mx-auto max-w-6xl px-5 py-16 md:py-20">
@@ -30,7 +37,7 @@ export default function ProjectsPage() {
             <Link
               key={project.slug}
               href={`/projects/${project.slug}`}
-              className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30 hover:bg-white/[0.07]"
+              className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30 hover:bg-white/[0.07]"
             >
               <div className="relative aspect-[4/3]">
                 {project.cover ? (
@@ -50,7 +57,7 @@ export default function ProjectsPage() {
                       <h2 className="mt-3 text-3xl font-semibold text-white">
                         {project.name}
                       </h2>
-                      <p className="mt-2 max-w-md text-sm leading-6 text-white/65">
+                      <p className="mt-2 max-w-md text-sm leading-6 text-white/60">
                         Images for this transformation will be added next.
                       </p>
                     </div>
@@ -64,15 +71,15 @@ export default function ProjectsPage() {
                     {project.type}
                   </p>
                   <span className="h-1 w-1 rounded-full bg-white/25" />
-                  <p className="text-xs uppercase tracking-[0.18em] text-white/45">
+                  <p className="text-xs uppercase tracking-[0.18em] text-white/40">
                     {project.location}
                   </p>
                 </div>
                 <h2 className="mt-3 text-2xl font-semibold md:text-3xl">
                   {project.name}
                 </h2>
-                <p className="mt-2 text-white/65">{project.fullAddress}</p>
-                <p className="mt-4 max-w-2xl text-sm leading-7 text-white/72">
+                <p className="mt-2 text-white/60">{project.fullAddress}</p>
+                <p className="mt-4 max-w-2xl text-sm leading-7 text-white/70">
                   {project.summary}
                 </p>
                 <p className="mt-5 text-sm font-semibold text-cyan-400">

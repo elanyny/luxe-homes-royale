@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Learn about Luxe Homes Royale — residential renovations, custom builds, and full home transformations across Long Island, NY.",
+};
+
 const pillars = [
   {
     title: "Thoughtful Planning",
@@ -15,7 +23,7 @@ const pillars = [
 
 export default function AboutPage() {
   return (
-    <main className="pb-16">
+    <main className="pb-20">
       <section className="relative overflow-hidden border-b border-white/10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.18),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.06),transparent_28%)]" />
         <div className="relative mx-auto max-w-6xl px-5 py-16 md:py-20">
@@ -39,7 +47,7 @@ export default function AboutPage() {
           <h2 className="text-3xl font-semibold md:text-4xl">
             Homes built and reworked with purpose
           </h2>
-          <div className="mt-6 space-y-5 text-white/72">
+          <div className="mt-6 space-y-5 text-white/70">
             <p>
               We approach each project with a practical understanding of what it
               takes to move a home from dated or underbuilt to complete, refined,
@@ -55,7 +63,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8">
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
           <p className="text-sm uppercase tracking-[0.2em] text-cyan-400">
             What We Value
           </p>

@@ -1,12 +1,35 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
 
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
 export const metadata: Metadata = {
-  title: "Luxe Homes Royale",
+  title: {
+    default: "Luxe Homes Royale | Premium Residential Construction on Long Island",
+    template: "%s | Luxe Homes Royale",
+  },
   description:
-    "Construction, renovations, and house flipping with premium craftsmanship and clear timelines.",
+    "Custom home building, renovations, and full home transformations across Long Island, NY. Premium craftsmanship with clear timelines and detail-focused execution.",
+  keywords: [
+    "luxury home builder",
+    "Long Island construction",
+    "home renovation",
+    "home transformation",
+    "custom home building",
+    "Oceanside NY contractor",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "Luxe Homes Royale",
+  },
 };
 
 export default function RootLayout({
@@ -15,10 +38,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="min-h-screen bg-black text-white">
+    <html lang="en" className={inter.variable}>
+      <body className="min-h-screen bg-black font-sans text-white antialiased">
+        <a href="#main-content" className="skip-to-content">
+          Skip to content
+        </a>
         <SiteHeader />
-        {children}
+        <div id="main-content">
+          {children}
+        </div>
         <SiteFooter />
       </body>
     </html>

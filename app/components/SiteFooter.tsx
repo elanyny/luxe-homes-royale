@@ -31,16 +31,16 @@ export default function SiteFooter() {
               Navigate
             </p>
             <div className="mt-4 flex flex-col gap-3 text-sm text-white/70">
-              <Link href="/about" className="hover:text-white">
+              <Link href="/about" className="transition hover:text-white">
                 About
               </Link>
-              <Link href="/projects" className="hover:text-white">
+              <Link href="/projects" className="transition hover:text-white">
                 Projects
               </Link>
-              <Link href="/services/custom-home-building" className="hover:text-white">
+              <Link href="/services/custom-home-building" className="transition hover:text-white">
                 Custom Home Building
               </Link>
-              <Link href="/contact" className="hover:text-white">
+              <Link href="/contact" className="transition hover:text-white">
                 Contact
               </Link>
             </div>
@@ -51,7 +51,7 @@ export default function SiteFooter() {
               Contact
             </p>
             <div className="mt-4 flex flex-col gap-3 text-sm text-white/70">
-              <a href={siteContact.phoneHref} className="hover:text-white">
+              <a href={siteContact.phoneHref} className="transition hover:text-white">
                 {siteContact.phoneDisplay}
               </a>
               <a
@@ -66,7 +66,7 @@ export default function SiteFooter() {
         </div>
 
         <div className="mt-8 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/50 md:flex-row md:items-center md:justify-between">
-          <p>(c) {new Date().getFullYear()} Luxe Homes Royale</p>
+          <p>&copy; {new Date().getFullYear()} Luxe Homes Royale</p>
           <p>Built for custom homes, renovations, and major transformations.</p>
         </div>
       </div>

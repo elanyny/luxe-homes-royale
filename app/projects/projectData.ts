@@ -115,4 +115,29 @@ export const projects: Project[] = [
     summary:
       "3446 Frederick St involved a major transformation centered on the addition of a full second story. The project expanded the home vertically while reworking the overall exterior presence and updating key interior spaces to create a much larger, more refined finished home.",
   },
+  {
+    slug: "487-links",
+    name: "487 Links Dr E",
+    location: "Oceanside, NY 11572",
+    fullAddress: "487 Links Dr E, Oceanside, NY 11572",
+    type: "Full Home Transformation — In Progress",
+    cover: "/project-images/487-links/After.JPEG",
+    hero: "/project-images/487-links/After.JPEG",
+    beforeImage: "/project-images/487-links/Before.JPG",
+    afterImage: "/project-images/487-links/After.JPEG",
+    gallery: [
+      "/project-images/487-links/Before.JPG",
+      "/project-images/487-links/After.JPEG",
+    ],
+    highlights: [
+      "Complete exterior redesign with modern architectural styling",
+      "Full structural expansion with contemporary roofline and floor-to-ceiling windows",
+      "New driveway and landscaping with tropical-inspired hardscape",
+      "Mixed material facade with stucco, wood accents, and black framing",
+      "Attached garage with modern flush panel door",
+      "Construction currently in progress",
+    ],
+    summary:
+      "487 Links Dr E is an ambitious full home transformation currently under construction. The project takes a dated single-story residence and reimagines it as a striking contemporary home with bold architectural lines, expansive glass, mixed material finishes, and a completely redesigned exterior with new landscaping and hardscaping. This project is actively being built and will be updated as construction progresses.",
+  },
 ];

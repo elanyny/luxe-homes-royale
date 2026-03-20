@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 type ProjectGalleryViewerProps = {
@@ -15,23 +15,45 @@ export default function ProjectGalleryViewer({
 }: ProjectGalleryViewerProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-  const openViewer = (index: number) => {
-    setActiveIndex(index);
-  };
+  const openViewer = (index: number) => setActiveIndex(index);
+  const closeViewer = useCallback(() => setActiveIndex(null), []);
 
-  const closeViewer = () => {
-    setActiveIndex(null);
-  };
-
-  const showPrev = () => {
+  const showPrev = useCallback(() => {
     if (activeIndex === null) return;
     setActiveIndex((activeIndex - 1 + images.length) % images.length);
-  };
+  }, [activeIndex, images.length]);
 
-  const showNext = () => {
+  const showNext = useCallback(() => {
     if (activeIndex === null) return;
     setActiveIndex((activeIndex + 1) % images.length);
-  };
+  }, [activeIndex, images.length]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    if (activeIndex === null) return;
+
+    function handleKeyDown(event: KeyboardEvent) {
+      switch (event.key) {
+        case "Escape":
+          closeViewer();
+          break;
+        case "ArrowLeft":
+          showPrev();
+          break;
+        case "ArrowRight":
+          showNext();
+          break;
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [activeIndex, closeViewer, showPrev, showNext]);
 
   return (
     <>
@@ -41,7 +63,7 @@ export default function ProjectGalleryViewer({
             key={src}
             type="button"
             onClick={() => openViewer(index)}
-            className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/10 bg-white/5 text-left"
+            className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/10 bg-white/5 text-left transition hover:border-cyan-400/30"
           >
             <Image
               src={src}
@@ -54,12 +76,18 @@ export default function ProjectGalleryViewer({
       </div>
 
       {activeIndex !== null && (
-        <div className="fixed inset-0 z-[100] bg-black/95">
+        <div
+          className="fixed inset-0 z-[100] bg-black/95"
+          role="dialog"
+          aria-label={`${title} gallery viewer`}
+          aria-modal="true"
+        >
           <div className="absolute right-4 top-4 z-[110] flex gap-3">
             <button
               type="button"
               onClick={closeViewer}
-              className="rounded-full border border-white/20 bg-white/10 p-3 text-white hover:bg-white/20"
+              className="rounded-full border border-white/20 bg-white/10 p-3 text-white transition hover:bg-white/20"
+              aria-label="Close gallery"
             >
               <X className="h-5 w-5" />
             </button>
@@ -68,7 +96,8 @@ export default function ProjectGalleryViewer({
           <button
             type="button"
             onClick={showPrev}
-            className="absolute left-4 top-1/2 z-[110] -translate-y-1/2 rounded-full border border-white/20 bg-white/10 p-3 text-white hover:bg-white/20"
+            className="absolute left-4 top-1/2 z-[110] -translate-y-1/2 rounded-full border border-white/20 bg-white/10 p-3 text-white transition hover:bg-white/20"
+            aria-label="Previous image"
           >
             <ChevronLeft className="h-6 w-6" />
           </button>
@@ -76,7 +105,8 @@ export default function ProjectGalleryViewer({
           <button
             type="button"
             onClick={showNext}
-            className="absolute right-4 top-1/2 z-[110] -translate-y-1/2 rounded-full border border-white/20 bg-white/10 p-3 text-white hover:bg-white/20"
+            className="absolute right-4 top-1/2 z-[110] -translate-y-1/2 rounded-full border border-white/20 bg-white/10 p-3 text-white transition hover:bg-white/20"
+            aria-label="Next image"
           >
             <ChevronRight className="h-6 w-6" />
           </button>
