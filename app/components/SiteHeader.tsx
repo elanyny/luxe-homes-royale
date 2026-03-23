@@ -67,7 +67,7 @@ export default function SiteHeader() {
             <button
               type="button"
               onClick={() => setLogoOpen(true)}
-              className="relative inline-flex h-28 w-44 shrink-0 cursor-pointer sm:h-32 sm:w-[32rem]"
+              className="relative inline-flex h-28 w-44 shrink-0 cursor-pointer sm:h-32 md:w-[32rem]"
               aria-label="View full logo"
             >
               <Image
@@ -80,7 +80,7 @@ export default function SiteHeader() {
               />
             </button>
           ) : (
-            <Link href="/" className="relative inline-flex h-28 w-44 shrink-0 sm:h-32 sm:w-[32rem]">
+            <Link href="/" className="relative inline-flex h-28 w-44 shrink-0 sm:h-32 md:w-[32rem]">
               <Image
                 src="/project-images/NewLuxeLogo.png"
                 alt="Luxe Homes Royale — go to homepage"
@@ -209,7 +209,7 @@ export default function SiteHeader() {
             </Link>
           </nav>
 
-          <div className="flex shrink-0 items-center justify-end gap-3 sm:w-[32rem]">
+          <div className="flex shrink-0 items-center justify-end gap-3 md:w-[32rem]">
             <Link
               href="/contact"
               className="hidden rounded-xl bg-cyan-400 px-4 py-2 text-sm font-semibold text-black transition hover:bg-cyan-300 sm:inline-block"
