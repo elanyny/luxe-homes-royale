@@ -38,9 +38,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} overflow-x-clip`}>
-      <body className="min-h-screen overflow-x-clip bg-black font-sans text-white antialiased">
-        <div className="max-w-[100vw] overflow-x-clip">
+    <html lang="en" className={inter.variable} style={{ overflowX: "hidden", maxWidth: "100vw" }}>
+      <body className="min-h-screen bg-black font-sans text-white antialiased" style={{ overflowX: "hidden", maxWidth: "100vw" }}>
+        <div style={{ overflowX: "clip", maxWidth: "100vw", width: "100%" }}>
           <a href="#main-content" className="skip-to-content">
             Skip to content
           </a>
