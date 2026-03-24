@@ -209,7 +209,7 @@ export default function SiteHeader() {
             </Link>
           </nav>
 
-          <div className="flex shrink-0 items-center justify-end gap-3 md:w-[32rem]">
+          <div className="flex shrink-0 items-center justify-end gap-3">
             <Link
               href="/contact"
               className="hidden rounded-xl bg-cyan-400 px-4 py-2 text-sm font-semibold text-black transition hover:bg-cyan-300 sm:inline-block"
