@@ -38,16 +38,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="min-h-screen bg-black font-sans text-white antialiased">
-        <a href="#main-content" className="skip-to-content">
-          Skip to content
-        </a>
-        <SiteHeader />
-        <div id="main-content">
-          {children}
+    <html lang="en" className={`${inter.variable} overflow-x-clip`}>
+      <body className="min-h-screen overflow-x-clip bg-black font-sans text-white antialiased">
+        <div className="max-w-[100vw] overflow-x-clip">
+          <a href="#main-content" className="skip-to-content">
+            Skip to content
+          </a>
+          <SiteHeader />
+          <div id="main-content">
+            {children}
+          </div>
+          <SiteFooter />
         </div>
-        <SiteFooter />
       </body>
     </html>
   );
