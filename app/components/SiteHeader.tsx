@@ -60,7 +60,7 @@ export default function SiteHeader() {
 
   return (
     <>
-    <header className="sticky top-0 z-50 overflow-hidden border-b border-white/10 bg-black/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur-md">
       <div className="mx-auto max-w-6xl px-5">
         <div className="flex h-20 items-center sm:h-24">
           {isHome ? (
